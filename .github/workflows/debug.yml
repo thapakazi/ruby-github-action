@@ -15,4 +15,6 @@ jobs:
           bundler-cache: true
         id: setup_ruby
       - name: print ruby-setup output
-        run: echo ${{join(steps.setup_ruby.outputs.*, '\n')}}
+        run: |
+          echo ${{join(steps.setup_ruby.outputs.*, '\n')}}
+          echo ${{join(steps.setup_ruby.outputs.ruby-prefix, '\n')}}

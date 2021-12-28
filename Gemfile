@@ -1,4 +1,4 @@
 # Used for testing
 source 'https://rubygems.org'
 
-gem "rails"
+gem "pig_latin_rb"
