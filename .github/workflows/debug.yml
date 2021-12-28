@@ -1,0 +1,18 @@
+name: github action to print rails version
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.0
+          bundler-cache: true
+        id: setup_ruby
+      - name: print ruby-setup output
+        run: echo ${{join(steps.setup_ruby.outputs.*, '\n')}}
