@@ -6,7 +6,7 @@ on:
       - main
 jobs: 
   docker:
-    name: "run job for ${{github.ref}}##*/"
+    name: "run job for ${{github.ref_name}}"
     runs-on: [self-hosted , "${{github.ref}}" ]
     steps:
       - uses: actions/checkout@v2
