@@ -6,8 +6,8 @@ on:
       - main
 jobs: 
   docker:
-    name: "run job for ${{github.ref_name}}"
-    runs-on: [ubuntu-latest ]
+    name: run job for github.ref_name
+    runs-on: [ubuntu-latest, github.ref_name ]
     steps:
       - name: print bloddy everything
         run: |
