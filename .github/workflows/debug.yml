@@ -18,3 +18,7 @@ jobs:
         run: |
           echo ${{join(steps.setup_ruby.outputs.*, '\n')}}
           echo ${{join(steps.setup_ruby.outputs.ruby-prefix, '\n')}}
+          
+      - name: print all the environment variables from ci
+        run: |
+           env
