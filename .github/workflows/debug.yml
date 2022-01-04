@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs: 
-  docker:
+  build:
     name: run job for github.ref_name
     runs-on: [ubuntu-latest, github.ref_name ]
     steps:
@@ -27,3 +27,9 @@ jobs:
           
       - name: print all the environment variables from ci
         run: echo ${GITHUB_REF##*/}
+  deploy:
+    name: deploy code
+    runs-on: [ubuntu-latest, github.ref_name ]
+    steps:
+    - run: |
+        echo ${{join(jobs.build.steps.setup_ruby.outputs.ruby-prefix, '\n')}}
