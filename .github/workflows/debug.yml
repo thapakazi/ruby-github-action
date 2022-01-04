@@ -20,5 +20,4 @@ jobs:
           echo ${{join(steps.setup_ruby.outputs.ruby-prefix, '\n')}}
           
       - name: print all the environment variables from ci
-        run: |
-           env
+        run: echo ${GITHUB_REF##*/}
