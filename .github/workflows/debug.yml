@@ -7,8 +7,13 @@ on:
 jobs: 
   docker:
     name: "run job for ${{github.ref_name}}"
-    runs-on: [self-hosted , "${{github.ref_name}}" ]
+    runs-on: [ubuntu-latest ]
     steps:
+      - name: print bloddy everything
+        run: |
+          echo ${{github}}
+          echo ${{github.ref}}
+          echo ${{github.ref_name}}
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
