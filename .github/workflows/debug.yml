@@ -6,8 +6,8 @@ on:
       - main
 jobs:
   docker:
-    name: "run job for ${{github_ref}}"
-    runs-on: [self-hosted , "${{github_ref}}" ]
+    name: "run job for ${{github.ref}}"
+    runs-on: [self-hosted , "${{github.ref}}" ]
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
