@@ -1,4 +1,4 @@
-name: github action to print rails version
+name: "github action to print rails version on ${{github.ref_name}}"
 
 on:
   push:
