@@ -31,7 +31,7 @@ jobs:
           fi
       - name: print environment
         run: |
-          echo ${{ steps.find_environment.outputs.ENVIRONMENT }}
+          echo ${{ steps.find_env }}
 
       - name: Send Honeybadger Notification
         uses: honeybadger-io/github-notify-deploy-action@v1
