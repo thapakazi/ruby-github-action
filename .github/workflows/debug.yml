@@ -10,6 +10,14 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
+      - name: find honeybadger environment
+        run: |
+          if [ ${{ github.ref_name }} == "master" ]; then
+            echo "::set-output name=honeybader_environment::production
+          else
+            echo "::set-output name=honeybadger_environment::staging
+          fi
+
       - name: print bloddy everything
         run: |
           echo ${{github}}
@@ -28,7 +36,7 @@ jobs:
         uses: honeybadger-io/github-notify-deploy-action@v1
         with:
           api_key: hbp_9JchL0CTSoHaevIQn95TBWAwxS48OD0kj0mu
-          environment: production
+          environment: ${{ steps.find_honeybadger_environment.outputs.honeybadger_environment }}
 
      
 #      - uses: actions/checkout@v2

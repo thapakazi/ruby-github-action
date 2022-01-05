@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    honeybadger (4.9.0)
+    pig_latin_rb (0.0.2)
+
+PLATFORMS
+  -darwin-21
+
+DEPENDENCIES
+  honeybadger
+  pig_latin_rb
+
+BUNDLED WITH
+   2.3.3
