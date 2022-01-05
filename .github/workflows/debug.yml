@@ -16,14 +16,12 @@ jobs:
           echo ${{github.ref_name}}
       - name: Print bloddy everything
         run: |
-          if [ ${{ github.ref_name }} == "staging" ]; then
+          if [ ${{ github.ref_name }} == "main" ]; then
             echo ${{github}}
             echo ${{github.ref}}
             echo ${{github.ref_name}}
           fi
-          
-          
-          
+                 
 #      - uses: actions/checkout@v2
 #      - uses: ruby/setup-ruby@v1
 #        with:
