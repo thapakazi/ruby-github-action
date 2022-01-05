@@ -12,11 +12,7 @@ jobs:
     steps:
       - name: find environment
         run: |
-          if [ ${{ github.ref_name }} == "main" ]; then
-            echo "::set-output name=ENVIRONMENT::production\n"
-          else
-            echo "::set-output name=ENVIRONMENT::staging\n"
-          fi
+          echo "::set-output name=ENVIRONMENT::production"
 
       - name: print bloddy everything
         run: |
@@ -34,13 +30,13 @@ jobs:
           fi
       - name: print environment
         run: |
-          echo ${{ env.ENVIRONMENT }}
+          echo ${{ steps.find_environment.outputs.ENVIRONMENT }}
 
       - name: Send Honeybadger Notification
         uses: honeybadger-io/github-notify-deploy-action@v1
         with:
           api_key: hbp_9JchL0CTSoHaevIQn95TBWAwxS48OD0kj0mu
-          environment: ${{ env.ENVIRONMENT }}
+          environment: ${{ steps.find_environment.outputs.ENVIRONMENT }}
 
      
 #      - uses: actions/checkout@v2
