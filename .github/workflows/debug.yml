@@ -20,8 +20,10 @@ jobs:
             echo ${{github}}
             echo ${{github.ref}}
             echo ${{github.ref_name}}
+          else
+            echo My Name is Sabin Nepal
           fi
-                 
+     
 #      - uses: actions/checkout@v2
 #      - uses: ruby/setup-ruby@v1
 #        with:
