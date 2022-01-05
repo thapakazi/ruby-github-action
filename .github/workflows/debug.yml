@@ -10,13 +10,13 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: print bloddy everything
-        if: ${{github.ref_name == "stag" }}
+        if: ${{ github.ref_name }} == 'stag'
         run: |
           echo ${{github}}
           echo ${{github.ref}}
           echo ${{github.ref_name}}
       - name: print bloddy everything
-        if: ${{github.ref_name == "main" }}
+        if: ${{ github.ref_name }} == 'main'
         run: |
           echo ${{github}}
           echo ${{github.ref}}
