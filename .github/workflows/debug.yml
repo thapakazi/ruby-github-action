@@ -10,12 +10,12 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
-      - name: find honeybadger environment
+      - name: find environment
         run: |
-          if [ ${{ github.ref_name }} == "master" ]; then
-            echo "::set-output name=honeybader_environment::production
+          if [ ${{ github.ref_name }} == "main" ]; then
+            echo "::set-env name=ENVIRONMENT::production"
           else
-            echo "::set-output name=honeybadger_environment::staging
+            echo "::set-env name=ENVIRONMENT::staging"
           fi
 
       - name: print bloddy everything
@@ -32,11 +32,15 @@ jobs:
           else
             echo My Name is Sabin Nepal
           fi
+      - name: print environment
+        run: |
+          echo ${{ env.ENVIRONMENT }}
+
       - name: Send Honeybadger Notification
         uses: honeybadger-io/github-notify-deploy-action@v1
         with:
           api_key: hbp_9JchL0CTSoHaevIQn95TBWAwxS48OD0kj0mu
-          environment: ${{ steps.find_honeybadger_environment.outputs.honeybadger_environment }}
+          environment: ${{ env.ENVIRONMENT }}
 
      
 #      - uses: actions/checkout@v2
