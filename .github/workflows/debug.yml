@@ -11,6 +11,7 @@ jobs:
 
     steps:
       - name: find environment
+        id: find_env
         run: |
           echo "::set-output name=ENVIRONMENT::production"
 
@@ -36,7 +37,7 @@ jobs:
         uses: honeybadger-io/github-notify-deploy-action@v1
         with:
           api_key: hbp_9JchL0CTSoHaevIQn95TBWAwxS48OD0kj0mu
-          environment: ${{ steps.find_environment.outputs.ENVIRONMENT }}
+          environment: ${{ steps.find_env.outputs.ENVIRONMENT }}
 
      
 #      - uses: actions/checkout@v2
