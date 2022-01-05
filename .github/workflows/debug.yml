@@ -10,6 +10,7 @@ jobs:
     runs-on: [ubuntu-latest, github.ref_name ]
     steps:
       - name: print bloddy everything
+        if: ${{github.ref_name}} == "stag"
         run: |
           echo ${{github}}
           echo ${{github.ref}}
@@ -31,5 +32,8 @@ jobs:
     name: deploy code
     runs-on: [ubuntu-latest, github.ref_name ]
     steps:
-    - run: |
+    
+    - name: Print Ruby Output
+
+    run: |
         echo ${{join(jobs.build.steps.setup_ruby.outputs.ruby-prefix, '\n')}}
