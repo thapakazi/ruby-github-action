@@ -13,9 +13,9 @@ jobs:
       - name: find environment
         run: |
           if [ ${{ github.ref_name }} == "main" ]; then
-            echo "::set-env name=ENVIRONMENT::production"
+            echo "::set-output name=ENVIRONMENT::production\n"
           else
-            echo "::set-env name=ENVIRONMENT::staging"
+            echo "::set-output name=ENVIRONMENT::staging\n"
           fi
 
       - name: print bloddy everything
