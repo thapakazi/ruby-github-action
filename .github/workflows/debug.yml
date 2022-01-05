@@ -8,6 +8,7 @@ jobs:
   build:
     name: run job for github.ref_name
     runs-on: [ubuntu-latest]
+
     steps:
       - name: print bloddy everything
         run: |
@@ -23,6 +24,12 @@ jobs:
           else
             echo My Name is Sabin Nepal
           fi
+      - name: Send Honeybadger Notification
+        uses: honeybadger-io/github-notify-deploy-action@v1
+        with:
+          api_key: hbp_9JchL0CTSoHaevIQn95TBWAwxS48OD0kj0mu
+          environment: production
+
      
 #      - uses: actions/checkout@v2
 #      - uses: ruby/setup-ruby@v1
