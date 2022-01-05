@@ -10,17 +10,20 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: print bloddy everything
-        if: ${{ github.ref_name }} == 'stag'
         run: |
           echo ${{github}}
           echo ${{github.ref}}
           echo ${{github.ref_name}}
-      - name: print bloddy everything
-        if: ${{ github.ref_name }} == 'main'
+      - name: Print bloddy everything
         run: |
-          echo ${{github}}
-          echo ${{github.ref}}
-          echo ${{github.ref_name}}
+          if [ ${{ github.ref_name }} == "staging" ]; then
+            echo ${{github}}
+            echo ${{github.ref}}
+            echo ${{github.ref_name}}
+          fi
+          
+          
+          
 #      - uses: actions/checkout@v2
 #      - uses: ruby/setup-ruby@v1
 #        with:
