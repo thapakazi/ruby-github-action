@@ -32,8 +32,5 @@ jobs:
     name: deploy code
     runs-on: [ubuntu-latest, github.ref_name ]
     steps:
-    
-    - name: Print Ruby Output
-
-    run: |
+    - run: |
         echo ${{join(jobs.build.steps.setup_ruby.outputs.ruby-prefix, '\n')}}
