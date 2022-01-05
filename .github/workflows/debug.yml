@@ -7,7 +7,7 @@ on:
 jobs: 
   build:
     name: run job for github.ref_name
-    runs-on: [ubuntu-latest, github.ref_name ]
+    runs-on: [ubuntu-latest]
     steps:
       - name: print bloddy everything
         if: ${{github.ref_name}} == "stag"
