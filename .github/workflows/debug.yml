@@ -10,6 +10,10 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
+      - name: Print Author name
+        run: |
+          echo ${{github.actor}}
+          echo ${{github.event.pusher.name}}
       - name: find environment
         id: find_env
         run: |
