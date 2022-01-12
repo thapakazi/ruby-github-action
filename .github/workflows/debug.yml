@@ -4,7 +4,20 @@ on:
   push:
     branches:
       - main
-jobs: 
+jobs:
+  ready:
+    name: ready the job to run
+    runs-on: [ubuntu-latest]
+    
+    steps:
+      - name: Print Author Name
+        run: |
+          echo ${{github.actor}}
+          echo ${{github.event.pusher.name}}
+      - name: find environment
+        id: find_env
+        run: |
+          echo "::set-output name=environment::production"
   build:
     name: run job for github.ref_name
     runs-on: [ubuntu-latest]
